@@ -57,4 +57,10 @@ function getResults(guess) {
     }
     result = result + '</div></div>';
     results.innerHTML = results.innerHTML + result;
+    
+    if (guess === answer.value) {
+        return true;
+    } else {
+        return false;
+    }
 }
