@@ -79,7 +79,7 @@ function getResults(guess) {
 }
 
 function showAnswer(playerWon) {
-    code.innerHTML = '<strong>'+answer.value+'</strong>';
+    code.innerHTML = answer.value;
     if (playerWon === true) {
         code.className = code.className+' success';
     } else {
