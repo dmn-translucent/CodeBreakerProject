@@ -2,6 +2,7 @@ let answer = document.getElementById('answer');
 let attempt = document.getElementById('attempt');
 let messageLabel = document.getElementById('message');
 let results = document.getElementById('results');
+let code = document.getElementById('code');
 
 function guess() {
     let input = document.getElementById('user-guess');
@@ -17,9 +18,13 @@ function guess() {
     }
     
     if (getResults(input.value)) {
-        setMessage("You Win!");
+        setMessage("You Win! :)");
+        showAnswer(true);
+        showReplay();
     } else if (attempt.value >= 10) {
         setMessage("You Lose! :(");
+        showAnswer(false);
+        showReplay();
     } else {
         setMessage("Incorrect, try again.");
     }
@@ -71,4 +76,18 @@ function getResults(guess) {
     } else {
         return false;
     }
+}
+
+function showAnswer(playerWon) {
+    code.innerHTML = '<strong>'+answer.value+'</strong>';
+    if (playerWon === true) {
+        code.className = code.className+' success';
+    } else {
+        code.className = code.className+' failure'
+    }
+}
+
+function showReplay() {
+    document.getElementById('guessing-div').style.display = 'none';
+    document.getElementById('replay-div').style.display = 'block';
 }
