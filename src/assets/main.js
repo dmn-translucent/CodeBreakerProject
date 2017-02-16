@@ -23,7 +23,7 @@ function setHiddenFields() {
 }
 
 function setMessage(message) {
-    messageLabel.innerHTML(message);
+    messageLabel.innerHTML = message;
 }
 
 function validateInput(input) {
