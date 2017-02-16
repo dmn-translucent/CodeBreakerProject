@@ -6,17 +6,17 @@ let results = document.getElementById('results');
 function guess() {
     let input = document.getElementById('user-guess');
     //add functionality to guess function here
-    if (answer === '' || attempt === '') {
+    if (answer.value === '' || attempt.value === 0) {
         setHiddenFields();
     }
     
     if (!validateInput(input.value)) {
         return false;
     } else {
-        attempt.value = attempt.value + 1;
+        attempt.value = parseInt(attempt.value) + 1;
     }
     
-    if (getResults(input)) {
+    if (getResults(input.value)) {
         setMessage("You Win!");
     } else if (attempt.value >= 10) {
         setMessage("You Lose! :(");
@@ -66,7 +66,7 @@ function getResults(guess) {
     result = result + '</div></div>';
     results.innerHTML = results.innerHTML + result;
     
-    if (guess === answer.value) {
+    if (guess.toString() === answer.value) {
         return true;
     } else {
         return false;
